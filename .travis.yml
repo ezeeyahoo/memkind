@@ -7,7 +7,8 @@ matrix:
   fast_finish: true
   include:
 
-    - name: "Astyle"
+    - &Astyle_
+      name: "Astyle"
       addons:
         apt:
           sources:
@@ -16,6 +17,10 @@ matrix:
             - astyle
       script:
         - ./astyle.sh
+
+    - << &Astyle_
+      name: "Astyle PPC"
+      arch: ppc64le
 
     - name: "GCC 4.8"
       addons:
