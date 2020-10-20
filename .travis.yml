@@ -22,7 +22,8 @@ matrix:
       name: "Astyle PPC"
       arch: ppc64le
 
-    - name: "GCC 4.8"
+    - &GCC_4.8
+      name: "GCC 4.8"
       addons:
         apt:
           sources:
@@ -35,6 +36,9 @@ matrix:
       install:
       script:
         - ./build.sh
+    - <<: *GCC_4.8
+      name: "GCC 4.8 on PPC"
+      arch: ppc64le
 
     - name: "GCC 10.0"
       addons:
