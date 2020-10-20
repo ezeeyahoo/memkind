@@ -22,7 +22,7 @@ matrix:
       name: "Astyle PPC"
       arch: ppc64le
 
-    - &GCC_4.8
+    - &GCC_4_8
       name: "GCC 4.8"
       addons:
         apt:
@@ -31,15 +31,13 @@ matrix:
           packages:
             - g++-4.8
             - libnuma-dev
-
       env:
          - MATRIX_EVAL="CC=gcc-4.8 && CXX=g++-4.8"
       install:
       script:
         - ./build.sh
-
-    - <<: *GCC_4.8
-      name: "GCC 4.8 on PPC"
+    - <<: *GCC_4_8
+      name: "GCC 4.8 PPC"
       arch: ppc64le
 
     - name: "GCC 10.0"
